@@ -10,6 +10,8 @@
 .runtimeconfig.json
 .firebase/
 
+./src/firestore/**
+
 ### Node ###
 # Logs
 logs

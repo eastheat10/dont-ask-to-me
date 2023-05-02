@@ -1,5 +1,4 @@
-import {tmp} from "./board/index.js";
+import {tmp} from "./post/index.js";
 
 tmp();
 
-console.log("ddd")
