@@ -1,2 +1,1 @@
-# 2nd-dont-question
-질문사절
+# 질문사절

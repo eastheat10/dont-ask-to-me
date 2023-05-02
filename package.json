@@ -1,0 +1,22 @@
+{
+  "name": "dont-question",
+  "version": "1.0.0",
+  "description": "질문사절",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woorifisa-service-dev/2nd-dont-question.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woorifisa-service-dev/2nd-dont-question/issues"
+  },
+  "homepage": "https://github.com/woorifisa-service-dev/2nd-dont-question#readme",
+  "dependencies": {
+    "firebase": "^9.21.0"
+  }
+}
