@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer type="module" src="src/app.js"></script>
+
     <title>질문사절</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Start</h1>
-</body>
+
+    <div class="container">
+      <div class="question">
+        <div class="content-header"></div>
+        <div class="content-body"></div>
+        <div class="comment"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/firestore/config.js"></script>
+  </body>
 </html>
