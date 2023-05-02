@@ -29,17 +29,37 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+/**
+ * firebase Collection 가져오기
+ * 
+ * @param {string} collectionName 
+ * @returns firebase collection
+ */
 export const getCollections = (collectionName) => {
   return getDocs(collection(db, collectionName));
 };
 
+/**
+ * firebase Collection의 문서 하나 key로 가져오기
+ * 
+ * @param {string} collectionName 
+ * @param {string} key 
+ * @returns 
+ */
 export const getItem = (collectionName, key) => {
   return getDoc(doc(db, collectionName, key));
 };
 
-export const write = async (collectionId, title, content) => {
+/**
+ * 새 문서 작성
+ * 
+ * @param {string} collectionName
+ * @param {string} title 
+ * @param {string} content 
+ */
+export const write = async (collectionName, title, content) => {
   try {
-    setDoc(await doc(db, collectionId, getUuid().toString()), {
+    setDoc(await doc(db, collectionName, getUuid().toString()), {
       title,
       content,
     });
@@ -49,13 +69,27 @@ export const write = async (collectionId, title, content) => {
   }
 };
 
-export const update = async (collectionId, id, title, content) => {
-  setDoc(await doc(db, collectionId, id), {
+/**
+ * 문서 업데이트 (덮어쓰기)
+ * 
+ * @param {string} collectionName
+ * @param {string} id 
+ * @param {string} title 
+ * @param {string} content 
+ */
+export const update = async (collectionName, id, title, content) => {
+  setDoc(await doc(db, collectionName, id), {
     title,
     content,
   });
 };
 
-export const deleteItem = async (collectionId, id) => {
-  await deleteDoc(doc(db, collectionId, id));
+/**
+ * 문서 삭제
+ * 
+ * @param {string} collectionName
+ * @param {string} id 
+ */
+export const deleteItem = async (collectionName, id) => {
+  await deleteDoc(doc(db, collectionName, id));
 };
