@@ -1,6 +1,6 @@
 import { write, db, deleteItem } from "./index.js";
 import { postTemplate } from "./../post/index.js";
-import { readComments } from "./CommentRepository.js";
+import { readComments } from "./commentRepository.js";
 import {
   query,
   where,
