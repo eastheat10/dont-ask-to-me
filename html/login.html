@@ -25,7 +25,7 @@
             Kakao.API.request({
               url: "/v2/user/me",
               success: function (response) {
-                location.href = "http://127.0.0.1:5501/html/index.html";
+                location.href = "./index.html";
                 localStorage.setItem("id", response.id);
               },
               fail: function (error) {

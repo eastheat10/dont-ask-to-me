@@ -12,7 +12,6 @@
       href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
     />
     <script defer type="module" src="./../src/app.js"></script>
-    <script defer type="module" src="./../src/toastui.js"></script>
 
   </head>
   <body>
@@ -117,6 +116,8 @@
 
 
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script type="module" src="./../src/toastui.js"></script>
+
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
       Kakao.init("83d20effdbdc3f83562442bfa0ec78e5"); //발급받은 키 중 javascript키를 사용해준다.
@@ -127,7 +128,7 @@
             success: function (response) {
               console.log(response);
               localStorage.removeItem("id");
-              location.href = "http://127.0.0.1:5501/html/login.html";
+              location.href = "./login.html";
             },
             fail: function (error) {
               console.log(error);
