@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>질문사절</title>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="icon" href="./img/favicon/favicon.ico">
+    <link rel="stylesheet" href="./css/index.css" />
     <link
       rel="stylesheet"
       href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
     />
-    <script defer type="module" src="/src/app.js"></script>
-    <script defer type="module" src="/src/toastui.js"></script>
+    <script defer type="module" src="./src/app.js"></script>
+    <script defer type="module" src="./src/toastui.js"></script>
 
   </head>
   <body>
@@ -34,7 +35,8 @@
 
       <main>
         <div id="post">
-          <!-- <div class="question">
+<!--           
+          <div class="question">
             <div class="question-content">
               <h2>test</h2>
               <ul>
@@ -57,13 +59,17 @@
             </div>
             <button class="post-delete-btn">삭제</button>
             <div class="comment">
-              <ul>
+              <ul id="comments-1234">
                 <li>comment1</li>
                 <li>comment2</li>
                 <li>comment3</li>
                 <li>comment4</li>
                 <li>comment</li>
               </ul>
+              <div>
+                <textarea id="comment-area-1234"></textarea>
+                <button id="comment-btn-1234">게시</button>
+              </div>
             </div>
           </div>
         </div>
@@ -99,8 +105,9 @@
                 <li>comment</li>
               </ul>
             </div>
-          </div> -->
-        </div>
+          </div>
+        </div> 
+      -->
 
         <div>
           <button id="more-btn">더보기</button>
@@ -108,12 +115,6 @@
       </main>
     </div>
 
-    <main>
-      <div id="post" class="flex-col justify-center"></div>
-      <div>
-        <button id="more-btn">더보기</button>
-      </div>
-    </main>
 
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
