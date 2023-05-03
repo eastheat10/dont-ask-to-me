@@ -37,8 +37,8 @@ a {
 
 .header-container {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .header.drop {
