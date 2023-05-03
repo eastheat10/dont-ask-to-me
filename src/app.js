@@ -13,5 +13,6 @@ document.querySelector(".write").addEventListener("click", () => {
 console.log(writeQuestion);
 
 const main = async () => {
-   readPosts();
+  readPosts();
 };
+main();

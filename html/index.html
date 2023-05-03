@@ -16,9 +16,6 @@
     <div class="layout">
       <header class="header">
         <div>로고</div>
-        <div>로그아웃</div>
-      </header>
-      <div class="toast">토스트</div>
         <div id="logout" onclick="kakaoLogout();">
           <a href="javascript:void(0)"> 카카오 로그아웃 </a>
         </div>
@@ -27,24 +24,13 @@
         <div class="toast" id="editor"></div>
         <button class="write">작성하기</button>
       </div>
-
-<main id="post" class="flex-col justify-center">
-        <div class="question flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
-          <div class="question-content">
-            ${post.content}
-          </div>
-          <div class="comment mt-3">
-            <ul>
-              <li>comment1</li>
-              <li>comment2</li>
-              <li>comment3</li>
-            </ul>
-          </div>
-        </div>
-      </main>
+    </div>
+    <main>
+      <div id="post" class="flex-col justify-center"></div>
       <div>
         <button id="more-btn">더보기</button>
-    </div>
+      </div>
+    </main>
     <script defer></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>

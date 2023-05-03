@@ -19,7 +19,11 @@ export const writeQuestion = (content, author) => {
 };
 
 const readPagedQuestion = async () => {
-  const q = query(collection(db, questions), orderBy("n", "desc"), limit(10));
+  const q = query(
+    collection(db, questions),
+    orderBy("createdAt", "desc"),
+    limit(10)
+  );
   const querySnapshot = await getDocs(q);
   const list = [];
   querySnapshot.docs.forEach((e) =>
@@ -45,8 +49,10 @@ export const readPosts = async () => {
 
   let content = "";
 
+  const userId = localStorage.getItem("id");
+
   for (let p of posts) {
-    content += `${postTemplate(p)}\n`;
+    content += `${postTemplate(p, userId)}\n`;
   }
 
   post.innerHTML = content;
