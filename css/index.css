@@ -1,13 +1,14 @@
 @font-face {
-    font-family: 'WooridaumB';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "WooridaumB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 
 :root {
-  --main-blue: #0078B9;
-  --mid-blue: #20C4F4;
+  --main-blue: #0078b9;
+  --mid-blue: #20c4f4;
   --sub-blue: #e3eff6;
 }
 
@@ -64,7 +65,8 @@ a {
   align-items: center;
 }
 
-#logout a, #home {
+#logout a,
+#home {
   color: var(--main-blue);
 }
 
@@ -130,4 +132,14 @@ button:hover {
   cursor: pointer;
   background-color: var(--mid-blue);
   color: black;
+}
+
+textarea {
+  width: 90%;
+}
+
+#comment {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }

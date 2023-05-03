@@ -4,7 +4,7 @@ export const postTemplate = (post, userId) => {
     li += `<li>${c.comment}</li>\n`;
   }
   const ul = `
-    <ul>
+    <ul id="comment-list-${post.id}">
       ${li}
     </ul>
   `;
@@ -15,10 +15,12 @@ export const postTemplate = (post, userId) => {
       <div class="question-content">
         ${post.content}
       </div>
-      <button id="${post.id}" class="reply">댓글 달기</button>
+      <textarea class="comment-area" id="comment-area-${post.id}"></textarea>
+      <button class="comment-button" id="comment-button-${post.id}">게시</button>
       ${button}
       <div class="comment mt-3">
         ${ul}
+        
       </div>
   </div>
 `;
