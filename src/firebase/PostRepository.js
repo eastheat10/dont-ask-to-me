@@ -3,6 +3,5 @@ import { getCollections } from "./index.js";
 const questions = "questions";
 
 export const findPosts = () => {
-    return getCollections(questions);
-    
-}
+  return getCollections(questions);
+};
