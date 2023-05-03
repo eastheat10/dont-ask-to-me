@@ -1,4 +1,5 @@
 import { readPosts, writeQuestion } from "./firebase/PostRepository.js";
+import { writeComment } from "./firebase/commentRepository.js";
 
 if (!localStorage.getItem("id")) {
   location.href = "http://127.0.0.1:5501/html/login.html";
@@ -67,6 +68,7 @@ function postComment() {
     const postId =
       arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
     const comment = textarea.value;
+    textarea.value = "";
 
     writeComment(postId, comment);
 
@@ -83,7 +85,9 @@ function postComment() {
       arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
 
     const textareaId = `comment-area-${postId}`;
-    const comment = document.getElementById(textareaId).value;
+    const textarea = document.getElementById(textareaId);
+    const comment = textarea.value;
+    textarea.value = "";
     writeComment(postId, comment);
 
     const ulId = `comment-list-${postId}`;
@@ -93,9 +97,7 @@ function postComment() {
   }
 
   const textarea = document.querySelectorAll(".comment-area");
-  console.log(textarea);
   for (let i = 0; i < textarea.length; i++) {
-    // console.log(textarea[i]);
     textarea[i].addEventListener("keyup", (e) => {
       if (e.keyCode === 13) {
         textareaEvent(e);
@@ -105,9 +107,7 @@ function postComment() {
 
   const button = document.querySelectorAll(".comment-button");
   for (let i = 0; i < button.length; i++) {
-    console.log(i);
     button[i].addEventListener("click", (e) => {
-      console.log("button cliked");
       buttonEvent(e);
     });
   }
