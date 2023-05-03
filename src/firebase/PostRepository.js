@@ -98,6 +98,8 @@ export const readPosts = async (isFirst) => {
 const checkLast = (posts) => {
   if (posts.length < 10) {
     const btn = document.getElementById("more-btn");
-    btn.remove();
+    if (btn !== null) {
+      btn.remove();
+    }
   }
 };

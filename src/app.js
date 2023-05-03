@@ -1,4 +1,3 @@
-import { writeComment } from "./firebase/commentRepository.js";
 import { readPosts, writeQuestion } from "./firebase/PostRepository.js";
 
 if (!localStorage.getItem("id")) {
@@ -11,7 +10,9 @@ document.querySelector(".write").addEventListener("click", () => {
 
 const addLoadEvent = () => {
   const btn = document.getElementById("more-btn");
-  btn.addEventListener("click", () => readPosts(false));
+  if (btn !== null) {
+    btn.addEventListener("click", () => readPosts(false));
+  }
 };
 
 function replyClick() {
@@ -44,28 +45,71 @@ const fixHead = () => {
 const main = async () => {
   fixHead();
   const isFirst = true;
-  //   readPosts(isFirst);
-  replyClick();
+  await readPosts(isFirst);
+  // replyClick();
   addLoadEvent();
+  postComment();
 };
 
 main();
+/*
+const textarea = document.getElementById("comment-area-1234");
+  textarea.addEventListener("keydown", (e) => {
+    console.log(e.target.id);
+  });
 
-// 1. textarea
-// 2. button
-// 3. 더보기 했을 때 textarea
-// 4. 
-function event(e) {
-   const id = e.target.id; // id = comment-area-1234
-   const arr = id.split("-"); // arr = ["comment", "area", "1234"];
-   const postId = arr[2]; // 1234
-   // writeComment(postId, comment);
-   const textarea = document.getElementById(id);
-   const comment = textarea.value;
-   writeComment(postId, comment);
-   const ul = document.getElementById("comments-1234");
-   const li = document.createElement("li");
-   li.innerText = comment;
-   ul.appendChild(li);
+  */
+
+function postComment() {
+  function textareaEvent(e) {
+    const textarea = e.target;
+    const arr = textarea.id.split("-");
+    const postId =
+      arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
+    const comment = textarea.value;
+
+    writeComment(postId, comment);
+
+    const ulId = `comment-list-${postId}`;
+    const li = document.createElement("li");
+    li.innerText = comment;
+    document.getElementById(ulId).appendChild(li);
+  }
+
+  function buttonEvent(e) {
+    const button = e.target;
+    const arr = button.id.split("-");
+    const postId =
+      arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
+
+    const textareaId = `comment-area-${postId}`;
+    const comment = document.getElementById(textareaId).value;
+    writeComment(postId, comment);
+
+    const ulId = `comment-list-${postId}`;
+    const li = document.createElement("li");
+    li.innerText = comment;
+    document.getElementById(ulId).appendChild(li);
+  }
+
+  const textarea = document.querySelectorAll(".comment-area");
+  console.log(textarea);
+  for (let i = 0; i < textarea.length; i++) {
+    // console.log(textarea[i]);
+    textarea[i].addEventListener("keyup", (e) => {
+      if (e.keyCode === 13) {
+        textareaEvent(e);
+      }
+    });
+  }
+
+  const button = document.querySelectorAll(".comment-button");
+  for (let i = 0; i < button.length; i++) {
+    console.log(i);
+    button[i].addEventListener("click", (e) => {
+      console.log("button cliked");
+      buttonEvent(e);
+    });
+  }
 }
 
