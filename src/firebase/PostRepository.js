@@ -1,4 +1,4 @@
-import { write, db } from "./index.js";
+import { write, db, deleteItem } from "./index.js";
 import { postTemplate } from "./../post/index.js";
 import { readComments } from "./CommentRepository.js";
 import {
@@ -19,10 +19,18 @@ export const writeQuestion = (content, author) => {
   });
 };
 
+export const deleteQuestion = (id) => {
+  deleteItem(questions, id);
+};
+
 let lastDate = 9999999999999;
 
 const readPagedQuestion = async () => {
-  const q = query(collection(db, questions), orderBy("createdAt", "desc"), limit(10));
+  const q = query(
+    collection(db, questions),
+    orderBy("createdAt", "desc"),
+    limit(10)
+  );
   const list = await read(q);
   return list;
 };
@@ -51,8 +59,9 @@ const read = async (query) => {
       ...e.data(),
     })
   );
-
-  lastDate = list[list.length - 1].createdAt;
+  if (list.length > 0) {
+    lastDate = list[list.length - 1].createdAt;
+  }
   return list;
 };
 
@@ -72,8 +81,10 @@ export const readPosts = async (isFirst) => {
 
   let content = "";
 
+  const userId = localStorage.getItem("id");
+
   for (let p of posts) {
-    content += `${postTemplate(p)}\n`;
+    content += `${postTemplate(p, userId)}\n`;
   }
 
   post.innerHTML += content;
@@ -81,12 +92,12 @@ export const readPosts = async (isFirst) => {
 
 /**
  * 10개씩 요청하지만 응답받은 컨텐츠가 10개 미만일 시 마지막 페이지 이므로 더보기 버튼 삭제
- * 
- * @param {array} posts 
+ *
+ * @param {array} posts
  */
 const checkLast = (posts) => {
   if (posts.length < 10) {
     const btn = document.getElementById("more-btn");
     btn.remove();
   }
-}
+};

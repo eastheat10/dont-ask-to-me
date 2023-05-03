@@ -1,66 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>질문사절</title>
     <link rel="stylesheet" href="/css/index.css" />
     <link
       rel="stylesheet"
       href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
     />
     <script defer type="module" src="/src/app.js"></script>
+    <script defer type="module" src="/src/toastui.js"></script>
+
   </head>
   <body>
     <div class="layout">
       <header class="header">
-        <div>로고</div>
-        <div>로그아웃</div>
-      </header>
-      <div class="toast">토스트</div>
-        <div id="logout" onclick="kakaoLogout();">
-          <a href="javascript:void(0)"> 카카오 로그아웃 </a>
+        <div class="header-container">
+          <div>
+            <h1><a id="home" href="/">질문사절</a></h1>
+          </div>
+          <div id="logout" onclick="kakaoLogout();">
+            <a href="javascript:void(0)"> 로그아웃 </a>
+          </div>
         </div>
       </header>
+
       <div class="toast-form">
         <div class="toast" id="editor"></div>
         <button class="write">작성하기</button>
       </div>
 
-<main id="post" class="flex-col justify-center">
-        <div class="question flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
-          <div class="question-content">
-            ${post.content}
-          </div>
-          <div class="comment mt-3">
-            <ul>
-              <li>comment1</li>
-              <li>comment2</li>
-              <li>comment3</li>
-            </ul>
+      <main>
+        <div id="post">
+          <!-- <div class="question">
+            <div class="question-content">
+              <h2>test</h2>
+              <ul>
+                <li>
+                  <p>안녕하세요</p>
+                  <ul>
+                    <li>
+                      <p>테스트 입니다</p>
+                      <ul>
+                        <li><p>테테테 스트</p></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <h1>타이틀 입니다</h1>
+              <div data-language="text" class="toastui-editor-ww-code-block">
+                <pre><code>console.log("test"); <br></code></pre>
+              </div>
+            </div>
+            <button class="post-delete-btn">삭제</button>
+            <div class="comment">
+              <ul>
+                <li>comment1</li>
+                <li>comment2</li>
+                <li>comment3</li>
+                <li>comment4</li>
+                <li>comment</li>
+              </ul>
+            </div>
           </div>
         </div>
+
+        <div id="post">
+          <div class="question">
+            <div class="question-content">
+              <h2>test</h2>
+              <ul>
+                <li>
+                  <p>안녕하세요</p>
+                  <ul>
+                    <li>
+                      <p>테스트 입니다</p>
+                      <ul>
+                        <li><p>테테테 스트</p></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <h1>타이틀 입니다</h1>
+              <div data-language="text" class="toastui-editor-ww-code-block">
+                <pre><code>console.log("test"); <br></code></pre>
+              </div>
+            </div>
+            <div class="comment">
+              <ul>
+                <li>comment1</li>
+                <li>comment2</li>
+                <li>comment3</li>
+                <li>comment4</li>
+                <li>comment</li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+
+        <div>
+          <button id="more-btn">더보기</button>
+        </div>
       </main>
+    </div>
+
+    <main>
+      <div id="post" class="flex-col justify-center"></div>
       <div>
         <button id="more-btn">더보기</button>
-    </div>
-    <script defer></script>
+      </div>
+    </main>
+
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
     <script>
-      const Editor = toastui.Editor;
-
-      const editor = new Editor({
-        el: document.querySelector("#editor"),
-        height: "400px",
-        initialEditType: "markdown",
-        previewStyle: "vertical",
-        placeholder: "모르는거, 사소한거 다 올려주세요",
-      });
-
-      // 카카오로그아웃
       Kakao.init("83d20effdbdc3f83562442bfa0ec78e5"); //발급받은 키 중 javascript키를 사용해준다.
       function kakaoLogout() {
         if (Kakao.Auth.getAccessToken()) {
