@@ -1,12 +1,22 @@
-import { readPosts, writeQuestion } from "./firebase/PostRepository.js";
+import {
+  deleteQuestion,
+  readPosts,
+  writeQuestion,
+} from "./firebase/PostRepository.js";
 
 if (!localStorage.getItem("id")) {
   location.href = "http://127.0.0.1:5501/html/login.html";
 }
 
-document.querySelector(".write").addEventListener("click", () => {
-  writeQuestion(editor.getHTML(), localStorage.id);
-});
+const deletePostEvent = () => {
+  const btns = document.querySelectorAll(".delete-board");
+  btns.forEach((r) => {
+    r.addEventListener("click", (event) => {
+      deleteQuestion(event.target.id);
+      document.querySelector(`.question-${event.target.id}`).remove();
+    });
+  });
+};
 
 const addLoadEvent = () => {
   const btn = document.getElementById("more-btn");
@@ -14,10 +24,11 @@ const addLoadEvent = () => {
 };
 
 const main = async () => {
-   fixHead();
+  fixHead();
   const isFirst = true;
-  readPosts(isFirst);
+  await readPosts(isFirst);
   addLoadEvent();
+  deletePostEvent();
 };
 
 const fixHead = () => {
