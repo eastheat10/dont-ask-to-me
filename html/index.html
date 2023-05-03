@@ -16,12 +16,10 @@
         <div>로그아웃</div>
       </header>
       <div class="toast">토스트</div>
-      <main id="post" class="flex justify-center">
-        <div class="question flex flex-col content-center w-2/3">
+      <main id="post" class="flex-col justify-center">
+        <div class="question flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
           <div class="question-content">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem nulla sapiente modi
-            quidem voluptatum cumque repudiandae accusamus ex pariatur quasi! Nobis laboriosam fugit
-            exercitationem veniam adipisci nesciunt aliquam debitis placeat.
+            ${post.content}
           </div>
           <div class="comment mt-3">
             <ul>
@@ -33,9 +31,7 @@
         </div>
       </main>
       <div>
-        <button>
-          더보기
-        </button>
+        <button id="more-btn">더보기</button>
       </div>
     </div>
   </body>
