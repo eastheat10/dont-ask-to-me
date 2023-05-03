@@ -1,6 +1,8 @@
 body {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .layout {
   display: flex;
@@ -16,4 +18,8 @@ body {
 }
 .toast {
   height: 400px;
+}
+.question {
+  border: 1px solid black;
+  margin-bottom: 20px;
 }
