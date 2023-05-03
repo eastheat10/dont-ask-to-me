@@ -1,16 +1,17 @@
 export const postTemplate = (post) => {
-  const ul = document.createElement("ul");
-
+  let li = "";
   for (let c of post.comments) {
-    const li = document.createElement("li");
-    li.innerHTML = c.comment;
-    ul.appendChild(li);
+    li += `<li>${c.comment}</li>\n`;
   }
 
-  console.log(ul.textContent);
+  const ul = `
+  <ul>
+    ${li}
+  </ul>
+  `;
 
   return `
-<div class="question flex flex-col content-center w-2/3">
+<div class="question flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
   <div class="question-content">
     ${post.content}
   </div>
