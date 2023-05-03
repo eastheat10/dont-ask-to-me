@@ -10,11 +10,7 @@
       rel="stylesheet"
       href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
     />
-    <script defer>
-      if (!localStorage.getItem("id")) {
-        location.href = "http://127.0.0.1:5501/html/login.html";
-      }
-    </script>
+    <script defer type="module" src="/src/app.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -31,6 +27,7 @@
 
       <main>메인컨텐츠</main>
     </div>
+    <script defer></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
@@ -63,11 +60,6 @@
           Kakao.Auth.setAccessToken(undefined);
         }
       }
-
-      // 작성하기
-      document.querySelector(".write").addEventListener("click", () => {
-        console.log(editor.getHTML());
-      });
     </script>
   </body>
 </html>
