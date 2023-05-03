@@ -1,14 +1,23 @@
-import { findPosts } from "./../firebase/PostRepository.js";
+export const postTemplate = (post) => {
+  let li = "";
+  for (let c of post.comments) {
+    li += `<li>${c.comment}</li>\n`;
+  }
 
-export async function tmp() {
-  // const item = await getItem("question", "4T910PzP5cWeG09hVMnw");
-  // const items = await getCollections("question");
+  const ul = `
+  <ul>
+    ${li}
+  </ul>
+  `;
 
-  // write("제목", "없음");
-  const items = await findPosts();
-  items.docs.forEach(element => {
-    console.log(element.data())
-  });
-
-  // console.log(items);
-}
+  return `
+<div class="question flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
+  <div class="question-content">
+    ${post.content}
+  </div>
+  <div class="comment mt-3">
+    ${ul}
+  </div>
+</div>
+`;
+};
