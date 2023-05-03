@@ -13,12 +13,13 @@ const addLoadEvent = () => {
   btn.addEventListener("click", () => readPosts(false));
 };
 
-const main = async () => {
-   fixHead();
-  const isFirst = true;
-  readPosts(isFirst);
-  addLoadEvent();
-};
+function replyClick() {
+  document.querySelectorAll(".reply").forEach((r) => {
+    r.addEventListener("click", (event) => {
+      writeComment(localStorage.getItem("id"), event.target.id, "test");
+    });
+  });
+}
 
 const fixHead = () => {
   let header = document.querySelector(".header");
@@ -37,6 +38,14 @@ const fixHead = () => {
       header.classList.remove("drop");
     }
   };
+};
+
+const main = async () => {
+  fixHead();
+  const isFirst = true;
+  //   readPosts(isFirst);
+  replyClick();
+  addLoadEvent();
 };
 
 main();
