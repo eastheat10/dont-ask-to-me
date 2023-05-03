@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>질문사절</title>
     <link
       rel="stylesheet"
       href="/css/login.css
@@ -22,9 +22,7 @@
     </div>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
-      Kakao.init("83d20effdbdc3f83562442bfa0ec78e5"); //발급받은 키 중 javascript키를 사용해준다.
-      console.log(Kakao.isInitialized()); // sdk초기화여부판단
-      //카카오로그인
+      Kakao.init("83d20effdbdc3f83562442bfa0ec78e5");
       function kakaoLogin() {
         Kakao.Auth.login({
           success: function (response) {
