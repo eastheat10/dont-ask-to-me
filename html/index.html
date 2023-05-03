@@ -24,7 +24,11 @@
           <a href="javascript:void(0)"> 카카오 로그아웃 </a>
         </div>
       </header>
-      <div class="toast" id="editor"></div>
+      <div class="toast-form">
+        <div class="toast" id="editor"></div>
+        <button class="write">작성하기</button>
+      </div>
+
       <main>메인컨텐츠</main>
     </div>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
@@ -35,12 +39,12 @@
 
       const editor = new Editor({
         el: document.querySelector("#editor"),
-        height: "600px",
+        height: "400px",
         initialEditType: "markdown",
         previewStyle: "vertical",
       });
 
-      //카카오로그아웃
+      // 카카오로그아웃
       Kakao.init("83d20effdbdc3f83562442bfa0ec78e5"); //발급받은 키 중 javascript키를 사용해준다.
       function kakaoLogout() {
         if (Kakao.Auth.getAccessToken()) {
@@ -58,6 +62,11 @@
           Kakao.Auth.setAccessToken(undefined);
         }
       }
+
+      // 작성하기
+      document.querySelector(".write").addEventListener("click", () => {
+        console.log("Test");
+      });
     </script>
   </body>
 </html>
