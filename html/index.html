@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./../src/app.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -14,7 +16,27 @@
         <div>로그아웃</div>
       </header>
       <div class="toast">토스트</div>
-      <main>메인컨텐츠</main>
+      <main class="flex justify-center">
+        <div class="question flex flex-col content-center w-2/3">
+          <div class="question-content">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem nulla sapiente modi
+            quidem voluptatum cumque repudiandae accusamus ex pariatur quasi! Nobis laboriosam fugit
+            exercitationem veniam adipisci nesciunt aliquam debitis placeat.
+          </div>
+          <div class="comment mt-3">
+            <ul>
+              <li>comment1</li>
+              <li>comment2</li>
+              <li>comment3</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <div>
+        <button>
+          더보기
+        </button>
+      </div>
     </div>
   </body>
 </html>
