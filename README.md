@@ -3,7 +3,7 @@
 
 ## 프로젝트 설명
 
-http://127.0.0.1:5501/html/index.html
+http://127.0.0.1:5501/html/login.html
 
 ## Detail
 
