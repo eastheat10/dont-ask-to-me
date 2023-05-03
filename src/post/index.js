@@ -8,10 +8,11 @@ export const postTemplate = (post, userId) => {
       ${li}
     </ul>
   `;
-  const btn = `<button>삭제하기</button>`;
+
+  const btn = `<button id="${post.id}"class="delete-board">삭제하기</button>`;
   const button = userId === post.author ? btn : "";
   return `
-    <div class="question flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
+    <div class="question-${post.id} flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
       <div class="question-content">
         ${post.content}
       </div>

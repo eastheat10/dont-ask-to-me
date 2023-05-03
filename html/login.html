@@ -5,16 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>질문사절</title>
-    <link
-      rel="stylesheet"
-      href="/css/login.css
-    "
-    />
+    <link rel="stylesheet" href="./../css/login.css"/>
   </head>
   <body>
     <div class="kakao-login">
       <button id="login" onclick="kakaoLogin();">
-        <img src="/img/kakao_logo.png" alt="" />
+        <img src="./../img/kakao_logo.png" alt="" />
         <a href="javascript:void(0)">
           <span id="login-text">카카오 로그인</span>
         </a>
@@ -29,7 +25,7 @@
             Kakao.API.request({
               url: "/v2/user/me",
               success: function (response) {
-                location.href = "http://127.0.0.1:5501/html/index.html";
+                location.href = "./index.html";
                 localStorage.setItem("id", response.id);
               },
               fail: function (error) {

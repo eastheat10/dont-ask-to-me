@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>질문사절</title>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="icon" href="./../img/favicon/favicon.ico">
+    <link rel="stylesheet" href="./../css/index.css" />
     <link
       rel="stylesheet"
       href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
     />
-    <script defer type="module" src="/src/app.js"></script>
-    <script defer type="module" src="/src/toastui.js"></script>
+    <script defer type="module" src="./../src/app.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -33,7 +33,8 @@
 
       <main>
         <div id="post">
-          <!-- <div class="question">
+<!--           
+          <div class="question">
             <div class="question-content">
               <h2>test</h2>
               <ul>
@@ -56,7 +57,7 @@
             </div>
             <button class="post-delete-btn">삭제</button>
             <div class="comment">
-              <ul id="comment-list-1234">
+              <ul id="comments-1234">
                 <li>comment1</li>
                 <li>comment2</li>
                 <li>comment3</li>
@@ -64,13 +65,8 @@
                 <li>comment</li>
               </ul>
               <div>
-                <textarea
-                  class="comment-area"
-                  id="comment-area-1234"
-                ></textarea>
-                <button class="comment-button" id="comment-button-1234">
-                  게시
-                </button>
+                <textarea id="comment-area-1234"></textarea>
+                <button id="comment-btn-1234">게시</button>
               </div>
             </div>
           </div>
@@ -117,6 +113,8 @@
     </div>
 
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script type="module" src="./../src/toastui.js"></script>
+
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
       Kakao.init("83d20effdbdc3f83562442bfa0ec78e5"); //발급받은 키 중 javascript키를 사용해준다.
@@ -127,7 +125,7 @@
             success: function (response) {
               console.log(response);
               localStorage.removeItem("id");
-              location.href = "http://127.0.0.1:5501/html/login.html";
+              location.href = "./login.html";
             },
             fail: function (error) {
               console.log(error);

@@ -1,4 +1,3 @@
-import { writeComment } from "./firebase/CommentRepository.js";
 import { readPosts, writeQuestion } from "./firebase/PostRepository.js";
 
 if (!localStorage.getItem("id")) {
@@ -113,3 +112,4 @@ function postComment() {
     });
   }
 }
+
