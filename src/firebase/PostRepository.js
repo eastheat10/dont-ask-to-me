@@ -10,11 +10,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 const questions = "questions";
 
-export const writeQuestion = (i) => {
+export const writeQuestion = (content, author) => {
   write(questions, {
-    content: "내용",
-    author: "홍길동",
-    createdAt: Date.now()
+    content: content,
+    author: author,
+    createdAt: Date.now(),
   });
 };
 
@@ -22,12 +22,14 @@ const readPagedQuestion = async () => {
   const q = query(collection(db, questions), orderBy("n", "desc"), limit(10));
   const querySnapshot = await getDocs(q);
   const list = [];
-  querySnapshot.docs.forEach(e => list.push({
-    id: e.id,
-    ...e.data()
-  }));
+  querySnapshot.docs.forEach((e) =>
+    list.push({
+      id: e.id,
+      ...e.data(),
+    })
+  );
 
-  return list;  
+  return list;
 };
 
 export const readPosts = async () => {

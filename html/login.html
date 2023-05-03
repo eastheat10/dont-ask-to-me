@@ -19,12 +19,6 @@
           <span id="login-text">카카오 로그인</span>
         </a>
       </button>
-
-      <!-- <li id="logout" onclick="kakaoLogout();">
-        <a href="javascript:void(0)">
-          <span>카카오 로그아웃</span>
-        </a>
-      </li> -->
     </div>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
@@ -37,7 +31,8 @@
             Kakao.API.request({
               url: "/v2/user/me",
               success: function (response) {
-                console.log(response);
+                location.href = "http://127.0.0.1:5501/html/index.html";
+                localStorage.setItem("id", response.id);
               },
               fail: function (error) {
                 console.log(error);
@@ -48,21 +43,6 @@
             console.log(error);
           },
         });
-      }
-      //카카오로그아웃
-      function kakaoLogout() {
-        if (Kakao.Auth.getAccessToken()) {
-          Kakao.API.request({
-            url: "/v1/user/unlink",
-            success: function (response) {
-              console.log(response);
-            },
-            fail: function (error) {
-              console.log(error);
-            },
-          });
-          Kakao.Auth.setAccessToken(undefined);
-        }
       }
     </script>
   </body>
