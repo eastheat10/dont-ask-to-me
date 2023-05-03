@@ -1,4 +1,4 @@
-import { write, db } from "./index.js";
+import { write, db, deleteItem } from "./index.js";
 import { postTemplate } from "./../post/index.js";
 import { readComments } from "./CommentRepository.js";
 import {
@@ -17,6 +17,10 @@ export const writeQuestion = (content, author) => {
     author: author,
     createdAt: Date.now(),
   });
+};
+
+export const deleteQuestion = (id) => {
+  deleteItem(questions, id);
 };
 
 let lastDate = 9999999999999;
@@ -55,8 +59,9 @@ const read = async (query) => {
       ...e.data(),
     })
   );
-
-  lastDate = list[list.length - 1].createdAt;
+  if (list.length > 0) {
+    lastDate = list[list.length - 1].createdAt;
+  }
   return list;
 };
 

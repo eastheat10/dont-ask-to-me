@@ -4,7 +4,7 @@ import { where } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firest
 const comments = "comments";
 
 export const writeComment = (postId, comment) => {
-  const userId =  "1234";
+  const userId = "1234";
   write(comments, {
     userId,
     postId,
