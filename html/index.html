@@ -6,15 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
+    />
+    <script defer>
+      if (!localStorage.getItem("id")) {
+        location.href = "http://127.0.0.1:5501/html/login.html";
+      }
+    </script>
   </head>
   <body>
     <div class="layout">
       <header class="header">
         <div>로고</div>
-        <div>로그아웃</div>
+        <div id="logout" onclick="kakaoLogout();">
+          <a href="javascript:void(0)"> 카카오 로그아웃 </a>
+        </div>
       </header>
-      <div class="toast">토스트</div>
+      <div class="toast-form">
+        <div class="toast" id="editor"></div>
+        <button class="write">작성하기</button>
+      </div>
+
       <main>메인컨텐츠</main>
     </div>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+    <script>
+      const Editor = toastui.Editor;
+
+      const editor = new Editor({
+        el: document.querySelector("#editor"),
+        height: "400px",
+        initialEditType: "markdown",
+        previewStyle: "vertical",
+        placeholder: "모르는거, 사소한거 다 올려주세요",
+      });
+
+      // 카카오로그아웃
+      Kakao.init("83d20effdbdc3f83562442bfa0ec78e5"); //발급받은 키 중 javascript키를 사용해준다.
+      function kakaoLogout() {
+        if (Kakao.Auth.getAccessToken()) {
+          Kakao.API.request({
+            url: "/v1/user/unlink",
+            success: function (response) {
+              console.log(response);
+              localStorage.removeItem("id");
+              location.href = "http://127.0.0.1:5501/html/login.html";
+            },
+            fail: function (error) {
+              console.log(error);
+            },
+          });
+          Kakao.Auth.setAccessToken(undefined);
+        }
+      }
+
+      // 작성하기
+      document.querySelector(".write").addEventListener("click", () => {
+        console.log(editor.getHTML());
+      });
+    </script>
   </body>
 </html>
