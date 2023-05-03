@@ -3,26 +3,24 @@ import { where } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firest
 
 const comments = "comments";
 
-export default tmp = {
-  writeComment: (postId, comment) => {
-    const userId = user | "1234";
-    write(comments, {
-      userId,
-      postId,
-      comment,
-      createdAt: Date.now(),
-    });
-  },
+export const writeComment = (postId, comment) => {
+  const userId =  "1234";
+  write(comments, {
+    userId,
+    postId,
+    comment,
+    createdAt: Date.now(),
+  });
+};
 
-  readComments: (postId) => {
-    getCollectionsWith(comments, where("postId", "==", postId));
-  },
+export const readComments = (postId) => {
+  return getCollectionsWith(comments, where("postId", "==", postId));
+};
 
-  updateComment: (commentId, comment) => {
-    update(comments, commentId, comment);
-  },
+export const updateComment = (commentId, comment) => {
+  update(comments, commentId, comment);
+};
 
-  deleteComment: (commentId) => {
-    deleteItem(comments, commentId);
-  }
+export const deleteComment = (commentId) => {
+  deleteItem(comments, commentId);
 };

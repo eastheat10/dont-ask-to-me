@@ -20,18 +20,13 @@ export const writeQuestion = (i) => {
 let lastTime = 9999999999999;
 
 export const readPagedQuestion = async () => {
-  const questionsRef = collection(db, questions);
-  const q = query(questionsRef, orderBy("n", "desc"), limit(20));
+  const q = query(collection(db, questions), orderBy("n", "desc"), limit(10));
   const querySnapshot = await getDocs(q);
   const list = [];
-  querySnapshot.docs.forEach(e => console.log(e.data()));
-  console.log("=====");
-  querySnapshot.docs.forEach(e => {
-    list.push(e.data());
-  })
+  querySnapshot.docs.forEach(e => list.push({
+    id: e.id,
+    ...e.data() 
+  }));
 
-  lastTime = list[list.length - 1].createdAt;
-
-  console.log(JSON.stringify(list, null, 3));
-    
+  return list;  
 };
