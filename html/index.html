@@ -6,20 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/index.css" />
-<<<<<<< HEAD
     <link
       rel="stylesheet"
       href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
     />
-    <script defer>
-      if (!localStorage.getItem("id")) {
-        location.href = "http://127.0.0.1:5501/html/login.html";
-      }
-    </script>
-=======
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="./../src/app.js"></script>
->>>>>>> 1dd10563b24eb1bfb89a143dcc7701e1ddc2a6e0
+    <script defer type="module" src="/src/app.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -29,38 +20,14 @@
           <a href="javascript:void(0)"> 카카오 로그아웃 </a>
         </div>
       </header>
-<<<<<<< HEAD
       <div class="toast-form">
         <div class="toast" id="editor"></div>
         <button class="write">작성하기</button>
       </div>
 
       <main>메인컨텐츠</main>
-=======
-      <div class="toast">토스트</div>
-      <main id="post" class="flex justify-center">
-        <div class="question flex flex-col content-center w-2/3">
-          <div class="question-content">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem nulla sapiente modi
-            quidem voluptatum cumque repudiandae accusamus ex pariatur quasi! Nobis laboriosam fugit
-            exercitationem veniam adipisci nesciunt aliquam debitis placeat.
-          </div>
-          <div class="comment mt-3">
-            <ul>
-              <li>comment1</li>
-              <li>comment2</li>
-              <li>comment3</li>
-            </ul>
-          </div>
-        </div>
-      </main>
-      <div>
-        <button>
-          더보기
-        </button>
-      </div>
->>>>>>> 1dd10563b24eb1bfb89a143dcc7701e1ddc2a6e0
     </div>
+    <script defer></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
@@ -93,11 +60,6 @@
           Kakao.Auth.setAccessToken(undefined);
         }
       }
-
-      // 작성하기
-      document.querySelector(".write").addEventListener("click", () => {
-        console.log(editor.getHTML());
-      });
     </script>
   </body>
 </html>
