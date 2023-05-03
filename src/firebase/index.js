@@ -9,6 +9,7 @@ import {
   getDoc,
   setDoc,
   deleteDoc,
+  query,
 } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,7 +28,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 /**
  * firebase Collection 가져오기
@@ -35,8 +36,21 @@ const db = getFirestore(app);
  * @param {string} collectionName
  * @returns firebase collection
  */
-export const getCollections = (collectionName) => {
-  return getDocs(collection(db, collectionName));
+export const getCollections = async (collectionName) => {
+  const items = await getDocs(collection(db, collectionName));
+  return items;
+};
+
+/**
+ *
+ * @param {string} collectionsName
+ * @param {firebase where} condition
+ * @returns array
+ */
+export const getCollectionsWith = async (collectionsName, condition) => {
+  const q = query(collection(db, collectionsName), condition);
+  const items = await getDocs(q);
+  return items;
 };
 
 /**
@@ -46,8 +60,9 @@ export const getCollections = (collectionName) => {
  * @param {string} key
  * @returns
  */
-export const getItem = (collectionName, key) => {
-  return getDoc(doc(db, collectionName, key));
+export const getItem = async (collectionName, key) => {
+  const item = await getDoc(doc(db, collectionName, key));
+  return item;
 };
 
 /**
@@ -57,14 +72,11 @@ export const getItem = (collectionName, key) => {
  * @param {string} title
  * @param {string} content
  */
-export const write = async (collectionName, title, content) => {
+export const write = async (collectionName, item) => {
   try {
-    setDoc(await doc(db, collectionName, getUuid().toString()), {
-      title,
-      content,
-    });
+    setDoc(await doc(db, collectionName, getUuid().toString()), item);
   } catch (e) {
-    console.log("Error");
+    console.log("Write error");
     console.log(e);
   }
 };
@@ -77,11 +89,13 @@ export const write = async (collectionName, title, content) => {
  * @param {string} title
  * @param {string} content
  */
-export const update = async (collectionName, id, title, content) => {
-  setDoc(await doc(db, collectionName, id), {
-    title,
-    content,
-  });
+export const update = async (collectionName, id, item) => {
+  try {
+    setDoc(await doc(db, collectionName, id), item);
+  } catch (e) {
+    console.log("Update Error");
+    console.log(e);
+  }
 };
 
 /**
