@@ -13,7 +13,7 @@ export const postTemplate = (post, userId) => {
   const button = userId === post.author ? btn : "";
   return `
     <div class="question question-${post.id} flex flex-col content-center w-2/3 border-solid border-2 border-indigo-600">
-      <div class="question-content">
+      <div class="question-content" style="overflow:auto;">
         ${post.content}
       </div>
       ${button}
