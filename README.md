@@ -29,7 +29,7 @@
 
 ## 개발 언어 및 활용 기술 💻
 
-### Tech 🔨
+### Tech
 
 <div style="display: flex;">
    <img src="https://img.shields.io/badge/HTML5-E34f26?style=for-the-badge&logo=HTML5&logoColor=white"/>
@@ -43,7 +43,7 @@
    <img src="https://img.shields.io/badge/Toast Editor-000000?style=for-the-badge&logo=Markdown&logoColor=white"/>
 </div>
 
-### API 📀
+### API
 
 <img src="https://img.shields.io/badge/Kakao-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
 
