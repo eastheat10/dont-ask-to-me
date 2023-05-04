@@ -16,12 +16,13 @@ export const postTemplate = (post, userId) => {
       <div class="question-content">
         ${post.content}
       </div>
-      <textarea class="comment-area" id="comment-area-${post.id}"></textarea>
-      <button class="comment-button" id="comment-button-${post.id}">게시</button>
       ${button}
-      <div class="comment mt-3">
+      <div class="comment">
         ${ul}
-        
+      </div>
+      <div class="comment-input">
+        <textarea class="comment-area" id="comment-area-${post.id}" placeholder="댓글을 입력해주세요."></textarea>
+        <button class="comment-button" id="comment-button-${post.id}">게시</button>
       </div>
   </div>
 `;
