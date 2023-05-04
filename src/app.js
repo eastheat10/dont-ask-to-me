@@ -1,4 +1,8 @@
-import { readPosts, writeQuestion, deleteQuestion } from "./firebase/PostRepository.js";
+import {
+  readPosts,
+  writeQuestion,
+  deleteQuestion,
+} from "./firebase/PostRepository.js";
 import { writeComment } from "./firebase/commentRepository.js";
 
 if (!localStorage.getItem("id")) {
@@ -33,13 +37,9 @@ const fixHead = () => {
 
   window.onscroll = function () {
     let windowTop = window.scrollY;
-    // 스크롤 세로값이 헤더높이보다 크거나 같으면
-    // 헤더에 클래스 'drop'을 추가한다
     if (windowTop >= headerHeight) {
       header.classList.add("drop");
-    }
-    // 아니면 클래스 'drop'을 제거
-    else {
+    } else {
       header.classList.remove("drop");
     }
   };
@@ -56,19 +56,13 @@ const main = async () => {
 };
 
 main();
-/*
-const textarea = document.getElementById("comment-area-1234");
-  textarea.addEventListener("keydown", (e) => {
-    console.log(e.target.id);
-  });
-
-  */
 
 function postComment() {
   function textareaEvent(e) {
     const textarea = e.target;
     const arr = textarea.id.split("-");
-    const postId = arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
+    const postId =
+      arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
     const comment = textarea.value;
     textarea.value = "";
 
@@ -83,7 +77,8 @@ function postComment() {
   function buttonEvent(e) {
     const button = e.target;
     const arr = button.id.split("-");
-    const postId = arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
+    const postId =
+      arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
 
     const textareaId = `comment-area-${postId}`;
     const textarea = document.getElementById(textareaId);
