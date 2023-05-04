@@ -1,12 +1,13 @@
-<h1 style = "text-align: center;">🙏질문 사절🙏</h1>
+<h1 style = "text-align: center;">🙏🏻질문 사절🙏🏻</h1>
 
 아..!! 이거 물어봐도 되나..??
 <br/>
 강의 시간에 모르는게 있을 때, 강사님이나 옆사람한테 물어보는게 눈치 보이셨나요??
 <br/>이런 문제를 해결하기 위해 <strong style="color:red;">질문 사절</strong>이 만들어지게 되었습니당
-<br/>이제 눈치보지 말고 <strong style="color: #0078B9;">익명게시판</strong>에 질문해주세요. 모두가 친절하게 답변 주실거에요😆
+<br/>이제 눈치 보지 말고 <strong style="color: #0078B9;">익명 게시판</strong>에 질문해주세요. 모두가 친절하게 답변 주실 거요😆
 <br/>
 만약 답변을 아무도 안달아 주신다면 저희가 꼭 해드리겠습니다 (아는선에서🙏)
+
 
 | 게시글 작성 | 댓글 작성 |
 | :---------: | :-------: |
@@ -25,7 +26,7 @@
 
 ## 개발 언어 및 활용 기술 💻
 
-### Tech
+### Tech 🔨
 
 <div style="display: flex;">
    <img src="https://img.shields.io/badge/HTML5-E34f26?style=for-the-badge&logo=HTML5&logoColor=white"/>
@@ -39,11 +40,11 @@
    <img src="https://img.shields.io/badge/Toast Editor-000000?style=for-the-badge&logo=Markdown&logoColor=white"/>
 </div>
 
-### API
+### API 📀
 
 <img src="https://img.shields.io/badge/Kakao-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
 
-### Deploy
+### Deploy 
 
 <img src="https://img.shields.io/badge/Github Pages-181717?style=for-the-badge&logo=Github Pages&logoColor=white"/>
 
@@ -116,8 +117,73 @@ https://ui.toast.com/tui-editor
 
 <br/>
 
-## 체험하기
+
+
+## 서비스 화면 🖥
+<br/>
+
+## ⚒ 주요 기능 ⚒
+1. 카카오 로그인
+2. Toast 에디터를 활용한 마크다운 게시글 작성
+3. 익명 질문 생성과 삭제, 댓글 작성
+<br/><br/>
+
+
+## 로그인 화면 🔐
+<br/>
+
+### Step 1️⃣
+<img width="1678" alt="image" src="https://user-images.githubusercontent.com/61819350/236095923-9883a8e1-3bff-40f5-bf9d-2cf5f8386111.png">
+<br/>
+
+- Kakao API를 활용해 카카오 로그인 구현
+<br/><br/>
+
+### Step 2️⃣
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/61819350/236080725-5e758b58-d398-4a51-95a7-afa887b659c2.png">
+<br/>
+
+- 카카오톡 아이디와 비밀번호 입력하여 로그인
+<br/><br/>
+
+### Step 3️⃣
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/61819350/236080862-6a48bb9f-a678-4bc2-bc9d-1051c32bdc06.png">
+<br/>
+
+- 로그인이 완료되면 location.href 이용해 메인 화면으로 전환
+<br/><br/>
+
+## 🙏🏻**질문 사절**🙏🏻 메인 화면
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/61819350/236082957-640db926-50fd-4169-8ae4-bd8c444f2bca.png">
+<br/>
+
+- Toast Ui API를 활용한 마크다운 형식 게시글 작성 기능
+- Firebase API를 활용한 사용자 게시글, 댓글 데이터의 DB 연동 및 처리
+- 댓글 게시 기능
+- 우측 상단의 __로그아웃__ 클릭시 카카오 로그인 초기 화면으로 이동 (location.href 이용)
+<br/><br/>
+
+## 어려웠던 점 🤢
+- 댓글 작성 기능에서 태그의 값이 동적으로 할당되도록 구현하는 부분이 어려웠고, for문을 이용해 태그의 id 값을 동적으로 할당하는 방식으로 해결하였습니다. getElementsByClassName 사용시 태그가 배열이 아닌 객체로 받아와지는 문제가 있었고 querySelectorAll을 사용해서 해결하였습니다.
+- 삭제 버튼 구현시 비동기 처리로 인하여 렌더링 시점 차이를 파악하기 어려웠습니다. 이를 asyn/await를 이용해 비동기 처리로 해결하였습니다.
+
+## 아쉬운 점 🤔
+- FireStore 무료 버전의 한계로 속도(성능) 저하가 발생했던 점이 아쉬웠습니다.
+- 이틀이라는 짧은 기간동안 기획 - 디자인 - 개발 -테스트가 이루어져야 한다는 점에서 고도화 하지 못했던 점, 마감 직전에 수정되는 사항들에 대해서 git flow 전략을 지키지 못했던 점이 아쉬웠습니다.
+
+## 향후 추가하고 싶은 기능 📝
+- 당일 Todo리스트와 날짜별로 게시글과 댓글을 확인할 수 있는 기능을 구현할 예정입니다.
+- 신규 게시글과 댓글이 추가되면 사용자에게 알림을 띄워주는 기능을 구현할 예정입니다.
+
+## 배운점 😃
+- Firebase API를 활용해 가이드라인을 읽고 CRUD 기능을 구현해볼 수 있었습니다.
+- 카카오 로그인, Toast UI, Firebase를 사용하면서 api 활용법을 익힐 수 있었습니다.
+- Git flow 전략을 사용하여 협업함으로써 형상관리에 대해 이해하고 적용해볼 수 있었습니다.
+- async/await를 적용해보며 비동기처리에 대해 이해할 수 있었습니다.
+
+## 체험하기 🙌🏻
 
 https://eastheat10.github.io/dont-ask-to-me/html/login.html
 
 ![qrcode](https://user-images.githubusercontent.com/38150034/236096504-ec8769b9-d421-45e6-ab0a-48cd7c7b1c0e.png)
+
