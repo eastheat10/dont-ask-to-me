@@ -27,11 +27,17 @@
 
 ### Tech
 
-<img src="https://img.shields.io/badge/HTML5-E34f26?style=for-the-badge&logo=HTML5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1571B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
-<img src="https://img.shields.io/badge/Javascript-f7df1E?style=for-the-badge&logo=Javascript&logoColor=white"/>
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=red"/>
-<img src="https://img.shields.io/badge/Toast Editor-000000?style=for-the-badge&logo=Markdown&logoColor=white"/>
+<div style="display: flex;">
+   <img src="https://img.shields.io/badge/HTML5-E34f26?style=for-the-badge&logo=HTML5&logoColor=white"/>
+   &nbsp;
+   <img src="https://img.shields.io/badge/CSS3-1571B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
+   &nbsp;
+   <img src="https://img.shields.io/badge/Javascript-f7df1E?style=for-the-badge&logo=Javascript&logoColor=white"/>
+   &nbsp;
+   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=red"/>
+   &nbsp;
+   <img src="https://img.shields.io/badge/Toast Editor-000000?style=for-the-badge&logo=Markdown&logoColor=white"/>
+</div>
 
 ### API
 
@@ -43,8 +49,11 @@
 
 ### Tool
 
-<img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white"/>
-<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"/>  <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white"/>
+<div style="display: flex;">
+   <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white"/>&nbsp;
+   <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"/>  &nbsp;
+   <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white"/>
+</div>
 
 <br/>
 
@@ -111,4 +120,4 @@ https://ui.toast.com/tui-editor
 
 https://eastheat10.github.io/dont-ask-to-me/html/login.html
 
-![qr코드](https://user-images.githubusercontent.com/38150034/236081329-0d6c19eb-f37a-4c44-acc6-b74f1201336d.png)
+![qrcode](https://user-images.githubusercontent.com/38150034/236096504-ec8769b9-d421-45e6-ab0a-48cd7c7b1c0e.png)
