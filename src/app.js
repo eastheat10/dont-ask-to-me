@@ -1,4 +1,4 @@
-import { readPosts, writeQuestion } from "./firebase/PostRepository.js";
+import { readPosts, writeQuestion, deleteQuestion } from "./firebase/PostRepository.js";
 import { writeComment } from "./firebase/commentRepository.js";
 
 if (!localStorage.getItem("id")) {
@@ -16,13 +16,15 @@ const addLoadEvent = () => {
   }
 };
 
-function replyClick() {
-  document.querySelectorAll(".reply").forEach((r) => {
+const deletePostEvent = () => {
+  const btns = document.querySelectorAll(".delete-board");
+  btns.forEach((r) => {
     r.addEventListener("click", (event) => {
-      writeComment(localStorage.getItem("id"), event.target.id, "test");
+      deleteQuestion(event.target.id);
+      document.querySelector(`.question-${event.target.id}`).remove();
     });
   });
-}
+};
 
 const fixHead = () => {
   let header = document.querySelector(".header");
@@ -49,6 +51,7 @@ const main = async () => {
   await readPosts(isFirst);
   // replyClick();
   addLoadEvent();
+  deletePostEvent();
   postComment();
 };
 
@@ -65,8 +68,7 @@ function postComment() {
   function textareaEvent(e) {
     const textarea = e.target;
     const arr = textarea.id.split("-");
-    const postId =
-      arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
+    const postId = arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
     const comment = textarea.value;
     textarea.value = "";
 
@@ -81,8 +83,7 @@ function postComment() {
   function buttonEvent(e) {
     const button = e.target;
     const arr = button.id.split("-");
-    const postId =
-      arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
+    const postId = arr[2] + "-" + arr[3] + "-" + arr[4] + "-" + arr[5] + "-" + arr[6];
 
     const textareaId = `comment-area-${postId}`;
     const textarea = document.getElementById(textareaId);
@@ -112,4 +113,3 @@ function postComment() {
     });
   }
 }
-
